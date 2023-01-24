@@ -4,7 +4,7 @@
 # It will run commands from the service file, which in turn uses the DB file to 
 # query and create data and will return the data back to the user
 
-from service import *
+import service
 
 print(
     """
@@ -19,4 +19,4 @@ print(
     """
 )
 
-print(service.getAll())
+print(service.viewAllRecords())
