@@ -31,6 +31,10 @@ def startApp():
             print(readAllOrders())
         if choice == "4":
             print(orderUpdate())
+        if choice == "5":
+            print(orderDelete())
+        if choice == "6":
+            print(deleteAllOrders())
         if choice == "7":
             confirmUpdate()
             sys.exit("Order Complete :)")
@@ -55,6 +59,15 @@ def orderUpdate():
     price = input("Price: ")
     return service.updateOrder(order_id, customer_name, drink_type, drink_size, extras, price)
 
+def orderDelete():
+    order_id = input("Order to be deleted: ")
+    return service.removeOrder(order_id)
+
+def deleteAllOrders():
+    decision = input("Do you want to delete all the orders? Yes or No: ")
+    if decision.lower == "yes" or decision.lower == 'y':
+        return service.deleteOrders()
+    return "No orders deleted."
 
 
     
@@ -70,5 +83,5 @@ def orderUpdate():
 def confirmUpdate():
     return service.updateDB()
 
-#startApp()
-print(service.viewAllRecords())
+startApp()
+#print(service.viewAllRecords())
