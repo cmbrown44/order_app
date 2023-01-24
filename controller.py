@@ -70,18 +70,8 @@ def deleteAllOrders():
     return "No orders deleted."
 
 
-    
-
-
-
-
-
-
-
-
-
 def confirmUpdate():
     return service.updateDB()
 
-startApp()
+#startApp()
 #print(service.viewAllRecords())
