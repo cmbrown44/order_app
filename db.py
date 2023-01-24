@@ -22,7 +22,7 @@ def commitChanges():
 
 
 # Uncomment this and run the file once to set up the DB
-setupTable()
+#setupTable()
 
 commitChanges()
 

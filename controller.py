@@ -5,9 +5,8 @@
 # query and create data and will return the data back to the user
 
 import service
-
-print(
-    """
+import sys
+menu = """
     Welcome to the QA Cafe, what would you like to do? 
 
     1. Create an order
@@ -16,7 +15,60 @@ print(
     4. Update an order
     5. Delete an order
     6. Delete all orders
+    7. Exit
     """
-)
 
+def startApp():
+    print(menu)
+    exit = False
+    while not exit:
+        choice = input("Pick an options from the menu: ")
+        if choice == "1":
+            print(createOrder())
+        if choice == "2":
+            print(readOrder())
+        if choice == "3":
+            print(readAllOrders())
+        if choice == "4":
+            print(orderUpdate())
+        if choice == "7":
+            confirmUpdate()
+            sys.exit("Order Complete :)")
+
+
+def createOrder():
+    customer_name, drink_type, drink_size, extras, price = input("Enter order: name, drink, size, extras and price: ").split()
+    return service.enterOrder(customer_name, drink_type, drink_size, extras, price)
+
+def readOrder(id):
+    return service.readID(id)
+
+def readAllOrders():
+    return service.viewAllRecords()
+
+def orderUpdate():
+    order_id = input("order_id: ")
+    customer_name = input("Customer name: ")
+    drink_type = input("Drink type: ")
+    drink_size = input("Drink size: ")
+    extras = input("Any extras: ")
+    price = input("Price: ")
+    return service.updateOrder(order_id, customer_name, drink_type, drink_size, extras, price)
+
+
+
+    
+
+
+
+
+
+
+
+
+
+def confirmUpdate():
+    return service.updateDB()
+
+#startApp()
 print(service.viewAllRecords())
